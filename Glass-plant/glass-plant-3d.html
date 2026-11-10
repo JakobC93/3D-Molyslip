@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glass container plant – where Molyslip® Glasstek products work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e42313;
+  --ink:#1a1a1a;
+  --body:#3a3d3f;
+  --muted:#656d71;
+  --line:#e7e8e9;
+  --panel:#ffffff;
+  --panel-2:#f6f7f7;
+  --scene:#e8ebeb;
+  --pin-ring:#ffffff;
+  --shadow:0 1px 0 rgba(0,0,0,.04), 0 10px 32px rgba(20,24,26,.12);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#f3f4f4; --body:#cdd1d3; --muted:#9aa1a5; --line:#33393c;
+    --panel:#1c1f21; --panel-2:#25292b; --scene:#17191b; --pin-ring:#17191b;
+    --shadow:0 10px 32px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#f3f4f4; --body:#cdd1d3; --muted:#9aa1a5; --line:#33393c;
+  --panel:#1c1f21; --panel-2:#25292b; --scene:#17191b; --pin-ring:#17191b;
+  --shadow:0 10px 32px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+body{background:var(--scene);color:var(--body);font-family:Verdana,Geneva,sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block;outline:none;touch-action:none}
+
+.brand{position:fixed;top:calc(env(safe-area-inset-top,0px) + 22px);left:26px;max-width:min(440px,calc(100vw - 420px));pointer-events:none;z-index:3}
+.brand .mark{font-family:'Archivo',Verdana,sans-serif;font-weight:900;font-size:20px;letter-spacing:-0.01em;color:var(--red);margin:0 0 14px}
+.brand h1{font-family:'Archivo',Verdana,sans-serif;font-weight:900;font-size:clamp(28px,3.1vw,44px);line-height:.98;letter-spacing:-0.025em;color:var(--ink);margin:0}
+.brand .rule{width:72px;height:5px;background:var(--red);margin:16px 0 14px}
+.brand p{margin:0;font-size:14px;line-height:1.6;color:var(--body);max-width:36ch}
+
+.panel{position:fixed;top:calc(env(safe-area-inset-top,0px) + 18px);right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:360px;background:var(--panel);box-shadow:var(--shadow);display:flex;flex-direction:column;z-index:4}
+.panel-head{padding:20px 22px 16px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:Verdana,Geneva,sans-serif;font-weight:bold;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.tool{font:12px/1 Verdana,Geneva,sans-serif;color:var(--ink);background:var(--panel-2);border:1px solid var(--line);padding:9px 11px;cursor:pointer}
+.tool:hover{border-color:var(--muted)}
+.tool[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.tool:focus-visible,.item-btn:focus-visible,.pin:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.list{list-style:none;margin:0;padding:6px 0;overflow:auto;flex:1;overscroll-behavior:contain}
+.item{border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item-btn{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start;width:100%;padding:14px 22px;cursor:pointer}
+.item-btn:hover .item-title{color:var(--red)}
+.num{width:30px;height:30px;background:var(--red);color:#fff;font-family:'Archivo',Verdana,sans-serif;font-weight:800;font-size:15px;display:grid;place-items:center}
+
+.item-title{display:block;font-family:'Archivo',Verdana,sans-serif;font-weight:800;font-size:17px;line-height:1.15;color:var(--ink);letter-spacing:-0.01em}
+.item-sub{display:block;font-size:12px;line-height:1.5;color:var(--muted);margin-top:4px}
+.detail{display:none;padding:0 22px 18px 66px}
+.item.open .detail{display:block}
+.item.open .item-btn{padding-bottom:10px}
+.detail p{font-size:13.5px;line-height:1.6;margin:0 0 14px;color:var(--body)}
+.prods{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.prods li{display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:start}
+.sq{width:8px;height:8px;background:var(--red);margin-top:6px}
+.pname{font-family:'Archivo',Verdana,sans-serif;font-weight:800;font-size:14px;color:var(--ink);text-transform:uppercase;letter-spacing:.01em}
+.pnote{font-size:12px;line-height:1.5;color:var(--muted)}
+.prods a{font-size:12px;color:var(--red);text-underline-offset:3px}
+.panel-foot{padding:12px 22px;border-top:1px solid var(--line);font-size:11px;line-height:1.5;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.panel-foot a{color:var(--red);white-space:nowrap}
+
+body::before{content:"";position:fixed;left:0;top:0;width:min(640px,70vw);height:340px;background:radial-gradient(ellipse at 0% 0%,var(--scene) 30%,transparent 72%);opacity:.92;z-index:1;pointer-events:none}
+#pins{position:fixed;inset:0;pointer-events:none;z-index:2}
+.pin{position:absolute;left:0;top:0;pointer-events:auto;display:flex;align-items:center;gap:8px;cursor:pointer;background:none;border:0;padding:0;will-change:transform}
+.pin .dot{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-family:'Archivo',Verdana,sans-serif;font-weight:800;font-size:14px;display:grid;place-items:center;box-shadow:0 0 0 3px var(--pin-ring),0 4px 14px rgba(0,0,0,.25);transform:translate(-15px,-15px);transition:transform .15s}
+.pin .tag{transform:translate(-12px,-15px);background:var(--panel);color:var(--ink);font:bold 11.5px/1 Verdana,Geneva,sans-serif;padding:7px 9px;box-shadow:var(--shadow);white-space:nowrap;opacity:0;transition:opacity .15s}
+.pin:hover .tag,.pin.active .tag,body.show-tags .pin .tag{opacity:1}
+.pin.active .dot{transform:translate(-15px,-15px) scale(1.18)}
+.pin.hidden{display:none}
+
+.hint{position:fixed;left:26px;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);font-size:12px;color:var(--muted);z-index:3;pointer-events:none}
+.flow{position:fixed;left:26px;bottom:calc(env(safe-area-inset-bottom,0px) + 44px);display:flex;gap:0;font-size:11px;color:var(--muted);z-index:3;pointer-events:none}
+.flow span{padding:6px 10px 6px 0}
+.flow span+span{padding-left:10px;border-left:1px solid var(--line)}
+
+#loading{position:fixed;inset:0;display:grid;place-items:center;font-size:13px;color:var(--muted);z-index:10;background:var(--scene);transition:opacity .5s}
+#loading.done{opacity:0;pointer-events:none}
+
+@media (max-width: 820px){
+  .brand{left:16px;top:calc(env(safe-area-inset-top,0px) + 14px);max-width:calc(100vw - 32px)}
+  .brand .mark{font-size:16px;margin-bottom:6px}
+  .brand h1{font-size:24px}
+  .brand .rule{margin:10px 0 0;width:52px;height:4px}
+  .brand p,.hint,.flow{display:none}
+  .panel{top:auto;left:10px;right:10px;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);width:auto;max-height:46vh}
+  .panel-head{padding:12px 14px 10px}
+  .eyebrow{display:none}
+  .item-btn{padding:11px 14px;gap:12px}
+  .detail{padding:0 14px 14px 56px}
+  .panel-foot{display:none}
+  .pin .tag{display:none}
+}
+@media (prefers-reduced-motion: reduce){ .pin .dot,.pin .tag,#loading{transition:none} }
+</style>
+</head>
+<body class="show-tags">
+<canvas id="scene" aria-label="3D model of a glass container production line with Molyslip lubrication points" tabindex="0"></canvas>
+<div id="pins" aria-hidden="false"></div>
+
+<header class="brand">
+  <div class="mark">Molyslip®</div>
+  <h1>Inside a glass container plant</h1>
+  <div class="rule"></div>
+  <p>Six points on the hot end where Glasstek lubricants keep the line running. Select a number to take a closer look.</p>
+</header>
+
+<div class="flow" aria-hidden="true"><span>Feeder</span><span>I.S. machine</span><span>Transfer</span><span>Annealing lehr</span></div>
+<div class="hint">Drag to rotate. Scroll or pinch to zoom. Right-drag to pan.</div>
+
+<aside class="panel" aria-label="Application points">
+  <div class="panel-head">
+    <div class="eyebrow">Application points</div>
+    <div class="tools">
+      <button class="tool" id="btnAll" aria-pressed="true">Show all points</button>
+      <button class="tool" id="btnPlay" aria-pressed="false">Pause line</button>
+      <button class="tool" id="btnReset">Reset view</button>
+    </div>
+  </div>
+  <ol class="list" id="list"></ol>
+  <div class="panel-foot"><span>Molyslip® is part of the Metalube Group of Companies</span><a href="https://molyslip.co.uk/glass/" target="_blank" rel="noopener">Glass range</a></div>
+</aside>
+
+<div id="loading">Building the plant…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+'use strict';
+if(!window.THREE){document.getElementById('loading').textContent='The 3D library did not load. Check your connection and refresh.';return;}
+THREE.ColorManagement.legacyMode = false;
+const V3 = THREE.Vector3;
+const RED = 0xe42313;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- product data (from molyslip.co.uk/glass) ---------- */
+const POINTS = [
+  { key:'shear', title:'Gob shears', sub:'Shear spray lubricant',
+    text:'Molten glass leaves the feeder orifice and the shear blades cut it into gobs, many times a minute. SL-40 is sprayed onto the blades to protect them from oxidation during production and extend their life.',
+    products:[{name:'Glasstek SL-40',note:'Premium shear spray lubricant',url:'https://molyslip.co.uk/product/glasstek-sl-40/'}],
+    view:{pos:[3.1,3.85,0.7],target:[0,3.5,-2.1]} },
+  { key:'scoop', title:'Gob distributor scoops', sub:'Scoop oils',
+    text:'The distributor swings its scoop to send each gob to the right section of the I.S. machine. DL-46 is a synthetic lubricant engineered for gob distributor systems in high-volume container plants.',
+    products:[{name:'Glasstek DL-46',note:'Synthetic lubricant for gob distributor systems',url:'https://molyslip.co.uk/product/glasstek-dl-46/'}],
+    view:{pos:[3.2,3.9,0.85],target:[0,3.0,-1.95]} },
+  { key:'delivery', title:'Troughs and deflectors', sub:'Delivery coating',
+    text:'Each gob slides down a trough and deflector into its blank mould. EGC is a bonded dry graphite coating that forms a thermal barrier between the semi-molten gob and the delivery surfaces, including older machine scoops.',
+    products:[{name:'Glasstek EGC',note:'Bonded dry graphite delivery coating',url:'https://molyslip.co.uk/product/glasstek-egc/'}],
+    view:{pos:[-4.4,3.8,2.1],target:[-0.3,2.4,-1.0]} },
+  { key:'moulds', title:'Blank and blow moulds', sub:'Pre-coats',
+    text:'The blank mould forms the parison, which is inverted into the blow mould and blown into the finished container. Dry graphite pre-coats go onto the mould cavities so the glass releases cleanly from the first bottle.',
+    products:[
+      {name:'Dry Graphite Spray',note:'Resin-bonded dry graphite film, aerosol',url:'https://molyslip.co.uk/product/dry-graphite-spray/'},
+      {name:'Glasstek MPC Fluid',note:'Pre-coat for glass moulds',url:'https://molyslip.co.uk/product/glasstek-mpc-fluid/'},
+      {name:'Glasstek MPC Spray',note:'Pre-coat for glass moulds, aerosol',url:'https://molyslip.co.uk/product/glasstek-mpc-spray/'}],
+    view:{pos:[-1.6,3.0,3.3],target:[-0.5,1.45,-0.05]} },
+  { key:'machine', title:'I.S. machine mechanisms', sub:'Machine lubricants',
+    text:'Every section drives mould arms, invert, take-out and pusher mechanisms at speed in a hot environment. The Glasstek IS range gives consistent lubrication through each production cycle.',
+    products:[
+      {name:'Glasstek IS-220',note:'Synthetic I.S. machine lubricant',url:'https://molyslip.co.uk/product/glasstek-is-220/'},
+      {name:'Glasstek IX-220',note:'I.S. machine lubricant'},
+      {name:'Glasstek IX-220 UV',note:'I.S. machine lubricant'}],
+    view:{pos:[-5.0,2.7,4.8],target:[-0.2,0.9,0.1]} },
+  { key:'transfer', title:'Transfer conveyor', sub:'Transfer coating lubricant',
+    text:'Hot containers are swept off the machine conveyor and carried to the lehr loader. AG-20 is a water-based graphite lubricant for the conveyor belts, keeping wear down where hot glass meets the belt.',
+    products:[{name:'Glasstek AG-20',note:'Water-based graphite lubricant for conveyor belts',url:'https://molyslip.co.uk/product/glasstek-ag-20/'}],
+    view:{pos:[-0.2,3.0,2.9],target:[3.0,1.1,1.6]} }
+];
+const HOME = {pos:[-5.6,10.6,16.6],target:[3.1,1.2,-0.9]};
+
+/* ---------- renderer / scene ---------- */
+const canvas = document.getElementById('scene');
+let renderer;
+try{ renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'}); }
+catch(e){ document.getElementById('loading').textContent='This 3D view needs WebGL, which is turned off in this browser.'; return; }
+renderer.setClearColor(0x000000,0);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(34,1,0.1,200);
+camera.position.set(...HOME.pos);
+const controls = new THREE.OrbitControls(camera,canvas);
+controls.target.set(...HOME.target);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI*0.49; controls.minDistance = 0.9; controls.maxDistance = 30;
+controls.screenSpacePanning = true;
+
+function cssVar(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function rawColor(hex){ const h=hex.replace('#',''); const n=parseInt(h.length===3?h.split('').map(c=>c+c).join(''):h,16); return new THREE.Color().setRGB(((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255); }
+scene.fog = new THREE.Fog(0xffffff,18,46);
+let darkTheme=false;
+function applyTheme(){
+  scene.fog.color.copy(rawColor(cssVar('--scene')||'#e8ebeb'));
+  darkTheme = (cssVar('--scene')||'').toLowerCase()==='#17191b';
+  renderer.toneMappingExposure = darkTheme?0.9:1.0;
+}
+applyTheme();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
+new MutationObserver(applyTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* environment map: a simple lit factory hall for reflections */
+(function makeEnv(){
+  const s = new THREE.Scene();
+  const room = new THREE.Mesh(new THREE.BoxGeometry(30,12,30),new THREE.MeshBasicMaterial({color:new THREE.Color(0.42,0.44,0.45),side:THREE.BackSide}));
+  room.position.y=6; s.add(room);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(30,30),new THREE.MeshBasicMaterial({color:new THREE.Color(0.18,0.18,0.18)}));
+  floor.rotation.x=-Math.PI/2; floor.position.y=0.01; s.add(floor);
+  const lamp=(w,d,x,z,i)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,d),new THREE.MeshBasicMaterial({color:new THREE.Color(i,i,i),side:THREE.DoubleSide}));m.rotation.x=Math.PI/2;m.position.set(x,11.8,z);s.add(m);};
+  for(let x=-9;x<=9;x+=6) for(let z=-9;z<=9;z+=9) lamp(1.2,6,x,z,9);
+  const win=new THREE.Mesh(new THREE.PlaneGeometry(26,3),new THREE.MeshBasicMaterial({color:new THREE.Color(3.2,3.4,3.6)}));
+  win.position.set(0,7,-14.9); s.add(win);
+  const warm=new THREE.Mesh(new THREE.PlaneGeometry(4,2),new THREE.MeshBasicMaterial({color:new THREE.Color(6,2.2,0.6)}));
+  warm.position.set(14.9,2,0); warm.rotation.y=-Math.PI/2; s.add(warm);
+  const pm = new THREE.PMREMGenerator(renderer);
+  scene.environment = pm.fromScene(s,0.04).texture;
+  pm.dispose();
+})();
+
+scene.add(new THREE.HemisphereLight(0xf4f6f8,0x6b6660,0.55));
+const sun = new THREE.DirectionalLight(0xfff6ec,1.55);
+sun.position.set(-7,14,9); sun.target.position.set(4,0,0);
+sun.castShadow = true; sun.shadow.mapSize.set(2048,2048);
+const sc=sun.shadow.camera; sc.left=-12; sc.right=12; sc.top=12; sc.bottom=-12; sc.near=1; sc.far=40;
+sun.shadow.bias=-0.0004; sun.shadow.normalBias=0.02;
+scene.add(sun,sun.target);
+const fill = new THREE.DirectionalLight(0xdfe8ff,0.35); fill.position.set(10,6,-8); scene.add(fill);
+
+/* ---------- textures ---------- */
+function canvasTex(w,h,draw,rep){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());if(rep){t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rep[0],rep[1]);}return t;}
+function rnd(seed){let s=seed;return()=>{s=(s*16807)%2147483647;return (s-1)/2147483646;};}
+const concreteTex = canvasTex(512,512,(g,w,h)=>{
+  g.fillStyle='#b9b7b2';g.fillRect(0,0,w,h);const r=rnd(7);
+  for(let i=0;i<9000;i++){const v=150+r()*70|0;g.fillStyle=`rgba(${v},${v-2},${v-6},${0.25*r()})`;g.fillRect(r()*w,r()*h,1+r()*2,1+r()*2);}
+  for(let i=0;i<28;i++){const x=r()*w,y=r()*h,rad=20+r()*70;const gr=g.createRadialGradient(x,y,0,x,y,rad);gr.addColorStop(0,'rgba(90,86,80,0.10)');gr.addColorStop(1,'rgba(90,86,80,0)');g.fillStyle=gr;g.fillRect(x-rad,y-rad,rad*2,rad*2);}
+  g.strokeStyle='rgba(80,78,74,0.35)';g.lineWidth=1.5;g.beginPath();g.moveTo(0,1);g.lineTo(w,1);g.moveTo(1,0);g.lineTo(1,h);g.stroke();
+},[10,8]);
+function beltTexture(){return canvasTex(64,64,(g,w,h)=>{g.fillStyle='#2b2e31';g.fillRect(0,0,w,h);for(let i=0;i<4;i++){g.fillStyle='#50565b';g.fillRect(i*16+2,3,11,58);g.fillStyle='#6a7076';g.fillRect(i*16+2,3,11,3);}g.fillStyle='#1b1d1f';g.fillRect(0,30,w,4);},[1,1]);}
+const meshTex = canvasTex(64,64,(g,w,h)=>{g.fillStyle='#55595c';g.fillRect(0,0,w,h);g.strokeStyle='#9aa0a4';g.lineWidth=3;for(let i=0;i<4;i++){g.beginPath();g.moveTo(i*16,0);g.lineTo(i*16+8,h);g.stroke();}g.strokeStyle='#7d8387';g.lineWidth=2;for(let j=0;j<4;j++){g.beginPath();g.moveTo(0,j*16+8);g.lineTo(w,j*16+8);g.stroke();}},[1,1]);
+const gratingTex = canvasTex(64,64,(g,w,h)=>{g.fillStyle='#3a3e41';g.fillRect(0,0,w,h);g.fillStyle='#8e9498';for(let i=0;i<8;i++)g.fillRect(i*8,0,3,h);g.fillStyle='#6d7377';for(let j=0;j<2;j++)g.fillRect(0,j*32+14,w,3);},[30,20]);
+const claddingTex = canvasTex(256,64,(g,w,h)=>{g.fillStyle='#cfd3d5';g.fillRect(0,0,w,h);for(let i=0;i<16;i++){g.fillStyle=i%2?'#c3c8ca':'#d9dcde';g.fillRect(i*16,0,8,h);}},[14,1]);
+const glowTex = canvasTex(128,128,(g,w,h)=>{const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,200,120,1)');gr.addColorStop(0.25,'rgba(255,120,30,0.55)');gr.addColorStop(1,'rgba(255,80,0,0)');g.fillStyle=gr;g.fillRect(0,0,w,h);});
+
+/* ---------- materials ---------- */
+const std=(o)=>new THREE.MeshStandardMaterial(o);
+const M = {
+  floor: std({map:concreteTex,roughness:0.92,metalness:0}),
+  paint: std({color:0xdadedf,roughness:0.5,metalness:0.2}),
+  paintMid: std({color:0x9aa3a8,roughness:0.5,metalness:0.3}),
+  paintDark: std({color:0x4c5459,roughness:0.55,metalness:0.35}),
+  steel: std({color:0xc4c9cc,roughness:0.28,metalness:0.92}),
+  darkSteel: std({color:0x5d6367,roughness:0.42,metalness:0.85}),
+  iron: std({color:0x34373a,roughness:0.55,metalness:0.7}),
+  bronze: std({color:0xa98a5c,roughness:0.35,metalness:0.9}),
+  refractory: std({color:0x8c7f73,roughness:0.95,metalness:0}),
+  casing: std({color:0x6d7377,roughness:0.6,metalness:0.6}),
+  yellow: std({color:0xe8b81a,roughness:0.6,metalness:0.1}),
+  safety: std({color:0xf0c419,roughness:0.7,metalness:0}),
+  rubber: std({color:0x1f2123,roughness:0.85,metalness:0}),
+  wall: std({color:0xd8dbdc,roughness:0.9,metalness:0.05}),
+  lehr: std({map:claddingTex,roughness:0.5,metalness:0.35}),
+  grating: std({map:gratingTex,roughness:0.6,metalness:0.7}),
+  lehrMat: std({map:meshTex,roughness:0.5,metalness:0.8}),
+  hotPort: std({color:0x331100,emissive:0xff5a10,emissiveIntensity:2.2}),
+};
+M.lehrMat.map.repeat.set(60,14);
+const HL_STATIC = std({color:RED,emissive:RED,emissiveIntensity:0.18,roughness:0.42,metalness:0.15,side:THREE.DoubleSide});
+const HL_PULSE  = std({color:RED,emissive:RED,emissiveIntensity:0.6,roughness:0.42,metalness:0.15,side:THREE.DoubleSide});
+
+/* glass at temperature: shared material per level */
+const TEMP_LEVELS = 24;
+const hotCol = new THREE.Color(0xb8400c), coldCol = new THREE.Color(0x6a3510);
+const tempMats = [];
+for(let i=0;i<TEMP_LEVELS;i++){
+  const T=i/(TEMP_LEVELS-1);
+  const k=THREE.MathUtils.smoothstep(T,0.15,1);
+  const m=new THREE.MeshPhysicalMaterial({color:coldCol.clone().lerp(hotCol,k),emissive:new THREE.Color(0xff3c00),emissiveIntensity:Math.pow(k,1.8)*1.7,roughness:0.08+0.25*k,metalness:0,clearcoat:1-k,clearcoatRoughness:0.05,transparent:T<0.2,opacity:T<0.2?0.86:1,envMapIntensity:1.4});
+  tempMats.push(m);
+}
+const matForTemp=T=>tempMats[Math.max(0,Math.min(TEMP_LEVELS-1,Math.round(T*(TEMP_LEVELS-1))))];
+const gobMat = new THREE.MeshStandardMaterial({color:0xff9a40,emissive:0xff5a10,emissiveIntensity:2.6,roughness:0.3});
+
+/* ---------- helpers ---------- */
+const groups = {}; POINTS.forEach(p=>groups[p.key]=[]);
+const pickables = [];
+function tag(obj,key){obj.traverse(o=>{if(o.isMesh){o.userData.orig=o.material;o.userData.key=key;groups[key].push(o);pickables.push(o);}});return obj;}
+function shadowy(m,cast=true,recv=true){m.castShadow=cast;m.receiveShadow=recv;return m;}
+function box(w,h,d,mat,x,y,z,parent){const m=shadowy(new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat));m.position.set(x,y,z);(parent||scene).add(m);return m;}
+function cyl(rt,rb,h,mat,x,y,z,parent,seg){const m=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||28),mat));m.position.set(x,y,z);(parent||scene).add(m);return m;}
+function rod(a,b,r,mat,parent){const d=new V3().subVectors(b,a);const m=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),10),mat));m.position.copy(a).addScaledVector(d,0.5);m.quaternion.setFromUnitVectors(new V3(0,1,0),d.normalize());(parent||scene).add(m);return m;}
+function halfPipe(curve,r,segs,radial){
+  segs=segs||48;radial=radial||12;const pos=[],uv=[],idx=[];const up=new V3(0,1,0);
+  for(let i=0;i<=segs;i++){const t=i/segs;const p=curve.getPointAt(t);const T=curve.getTangentAt(t).normalize();
+    let side=new V3().crossVectors(T,up);if(side.lengthSq()<1e-4)side.set(1,0,0);side.normalize();
+    const down=new V3().crossVectors(T,side).normalize();
+    for(let j=0;j<=radial;j++){const a=Math.PI*j/radial;const v=p.clone().addScaledVector(side,Math.cos(a)*r).addScaledVector(down,Math.sin(a)*r);pos.push(v.x,v.y,v.z);uv.push(t,j/radial);}}
+  for(let i=0;i<segs;i++)for(let j=0;j<radial;j++){const a=i*(radial+1)+j,b=a+radial+1;idx.push(a,b,a+1,b,b+1,a+1);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();return g;
+}
+function mouldHalfGeo(ro,ri,h,side){
+  const s=new THREE.Shape();
+  if(side>0){s.absarc(0,0,ro,-Math.PI/2,Math.PI/2,false);s.absarc(0,0,ri,Math.PI/2,-Math.PI/2,true);}
+  else{s.absarc(0,0,ro,Math.PI/2,Math.PI*1.5,false);s.absarc(0,0,ri,Math.PI*1.5,Math.PI/2,true);}
+  const g=new THREE.ExtrudeGeometry(s,{depth:h,bevelEnabled:true,bevelThickness:0.006,bevelSize:0.006,bevelSegments:1,curveSegments:18});
+  g.rotateX(-Math.PI/2);g.translate(0,-h/2,0);return g;
+}
+const ease=t=>t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const clamp01=t=>Math.max(0,Math.min(1,t));
+const seg=(p,a,b)=>clamp01((p-a)/(b-a));
+const mod=(a,n)=>((a%n)+n)%n;
+
+/* ---------- hall ---------- */
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(60,48),M.floor);floor.rotation.x=-Math.PI/2;floor.position.set(4,0,-2);floor.receiveShadow=true;scene.add(floor);
+function floorLine(x1,z1,x2,z2,w){const dx=x2-x1,dz=z2-z1,L=Math.hypot(dx,dz);const m=new THREE.Mesh(new THREE.PlaneGeometry(L,w),M.safety);m.rotation.x=-Math.PI/2;m.rotation.z=-Math.atan2(dz,dx);m.position.set((x1+x2)/2,0.004,(z1+z2)/2);m.receiveShadow=true;scene.add(m);}
+floorLine(-3.2,1.65,2.4,1.65,0.08);floorLine(-3.2,-1.4,-3.2,1.65,0.08);floorLine(2.4,1.65,2.4,3.6,0.08);floorLine(-3.2,3.9,15.5,3.9,0.08);floorLine(-3.2,7.2,15.5,7.2,0.08);
+const backWall=new THREE.Mesh(new THREE.PlaneGeometry(60,12),std({map:canvasTex(256,64,(g,w,h)=>{g.fillStyle='#d3d6d7';g.fillRect(0,0,w,h);for(let i=0;i<32;i++){g.fillStyle=i%2?'#c6cacb':'#dcdfe0';g.fillRect(i*8,0,4,h);}},[24,1]),roughness:0.85,metalness:0.2}));
+backWall.position.set(4,6,-11);backWall.receiveShadow=true;scene.add(backWall);
+const winMat=std({color:0xeef3f6,emissive:0xdfe9f0,emissiveIntensity:0.6,roughness:0.2});
+for(let x=-14;x<=22;x+=6){box(4.4,1.6,0.05,winMat,x,8.6,-10.95);}
+for(let x=-8;x<=16;x+=8){const c=new THREE.Group();box(0.36,11,0.06,M.paintDark,0,5.5,0.15,c);box(0.36,11,0.06,M.paintDark,0,5.5,-0.15,c);box(0.04,11,0.3,M.paintDark,0,5.5,0,c);c.position.set(x,0,-10.6);scene.add(c);}
+
+/* ---------- forehearth + feeder ---------- */
+const FEED = {x:0,z:-2.1,orificeY:3.73};
+box(1.3,0.62,7.0,M.casing,0,4.18,-6.0);
+box(1.1,0.08,7.0,M.refractory,0,4.53,-6.0);
+for(let z=-9.2;z<=-2.9;z+=0.55){cyl(0.035,0.035,0.18,M.steel,0.68,4.1,z).rotation.z=Math.PI/2;cyl(0.035,0.035,0.18,M.steel,-0.68,4.1,z).rotation.z=Math.PI/2;
+  const pl=new THREE.Mesh(new THREE.CircleGeometry(0.025,12),M.hotPort);pl.position.set(0.771,4.1,z);pl.rotation.y=Math.PI/2;scene.add(pl);}
+rod(new V3(0.75,4.36,-9.4),new V3(0.75,4.36,-2.8),0.045,M.yellow);rod(new V3(-0.75,4.36,-9.4),new V3(-0.75,4.36,-2.8),0.045,M.yellow);
+cyl(0.62,0.58,0.62,M.casing,FEED.x,4.18,FEED.z);
+cyl(0.5,0.18,0.22,M.refractory,FEED.x,3.79,FEED.z);
+const orificeRing=cyl(0.13,0.13,0.05,M.darkSteel,FEED.x,3.75,FEED.z);
+const orificeGlow=new THREE.Mesh(new THREE.CircleGeometry(0.06,20),gobMat);orificeGlow.rotation.x=Math.PI/2;orificeGlow.position.set(FEED.x,3.722,FEED.z);scene.add(orificeGlow);
+cyl(0.26,0.26,0.7,M.paintMid,FEED.x,4.85,FEED.z);
+box(0.52,0.4,0.42,M.paintDark,FEED.x,5.32,FEED.z-0.1);
+cyl(0.05,0.05,0.5,M.steel,FEED.x,5.75,FEED.z);
+cyl(0.34,0.34,0.12,M.bronze,FEED.x,4.6,FEED.z);
+/* operator platform */
+box(3.6,0.08,4.2,M.grating,0,3.4,-5.0);
+box(3.6,0.18,0.08,M.yellow,0,3.31,-2.9);
+for(const [x,z] of [[-1.7,-2.98],[1.7,-2.98],[-1.7,-7.0],[1.7,-7.0]]) box(0.16,3.3,0.16,M.paintDark,x,1.65,z);
+for(const x of [-1.75,1.75]){rod(new V3(x,3.44,-2.95),new V3(x,4.5,-2.95),0.025,M.yellow);rod(new V3(x,3.44,-7.0),new V3(x,4.5,-7.0),0.025,M.yellow);rod(new V3(x,4.5,-2.95),new V3(x,4.5,-7.0),0.025,M.yellow);rod(new V3(x,4.0,-2.95),new V3(x,4.0,-7.0),0.02,M.yellow);}
+/* stairs */
+(function(){const g=new THREE.Group();const n=16;for(let i=0;i<n;i++){box(0.8,0.04,0.26,M.grating,0,0.2+i*(3.2/n),-i*0.24,g);}
+  rod(new V3(-0.42,0,0.2),new V3(-0.42,3.4,-3.7),0.03,M.paintDark,g);rod(new V3(0.42,0,0.2),new V3(0.42,3.4,-3.7),0.03,M.paintDark,g);
+  rod(new V3(-0.45,1.0,0.2),new V3(-0.45,4.3,-3.7),0.02,M.yellow,g);rod(new V3(0.45,1.0,0.2),new V3(0.45,4.3,-3.7),0.02,M.yellow,g);
+  g.position.set(-2.25,0,-3.3);scene.add(g);})();
+
+/* ---------- shears (SL-40) ---------- */
+const shear={L:new THREE.Group(),R:new THREE.Group()};
+shear.L.position.set(-0.42,3.705,FEED.z);shear.R.position.set(0.42,3.69,FEED.z);
+scene.add(shear.L,shear.R);
+const bladeGeo=new THREE.BoxGeometry(0.44,0.012,0.085);
+const bL=shadowy(new THREE.Mesh(bladeGeo,M.steel));bL.position.set(0.22,0,0);shear.L.add(bL);
+const bR=shadowy(new THREE.Mesh(bladeGeo,M.steel));bR.position.set(-0.22,0,0);shear.R.add(bR);
+tag(bL,'shear');tag(bR,'shear');
+box(0.16,0.12,0.16,M.paintDark,-0.42,3.7,FEED.z);box(0.16,0.12,0.16,M.paintDark,0.42,3.7,FEED.z);
+box(0.06,0.06,0.6,M.paintDark,-0.42,3.72,FEED.z-0.35);box(0.06,0.06,0.6,M.paintDark,0.42,3.72,FEED.z-0.35);
+for(const s of [-1,1]){rod(new V3(s*0.3,3.82,FEED.z+0.32),new V3(s*0.12,3.72,FEED.z+0.1),0.012,M.bronze);cyl(0.02,0.012,0.04,M.bronze,s*0.12,3.715,FEED.z+0.1);}
+
+/* ---------- gob distributor (DL-46) ---------- */
+const DIST = new V3(0,3.25,-2.1);
+const scoop = new THREE.Group(); scoop.position.copy(DIST); scene.add(scoop);
+const scoopCurve = new THREE.CatmullRomCurve3([new V3(0,0.02,-0.02),new V3(0,-0.07,0.08),new V3(0,-0.18,0.2),new V3(0,-0.3,0.35)]);
+const scoopMesh = shadowy(new THREE.Mesh(halfPipe(scoopCurve,0.07,24,12),std({color:0x8d949a,roughness:0.35,metalness:0.85,side:THREE.DoubleSide})));
+scoop.add(scoopMesh);
+const funnel=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.07,0.07,24,1,true),std({color:0x8d949a,roughness:0.35,metalness:0.85,side:THREE.DoubleSide})));funnel.position.set(0,0.06,-0.01);scoop.add(funnel);
+const collar=cyl(0.11,0.11,0.035,M.darkSteel,0,0.1,-0.01,scoop);
+tag(scoopMesh,'scoop');tag(funnel,'scoop');
+box(0.55,0.22,0.36,M.paintDark,0,3.45,-2.62);
+box(0.12,0.05,0.42,M.darkSteel,0.12,3.36,-2.38);
+cyl(0.05,0.05,0.25,M.steel,0.12,3.48,-2.17);
+box(0.14,0.05,0.14,M.darkSteel,0.06,3.36,-2.15);
+
+/* ---------- IS machine ---------- */
+const NS=6, PITCH=0.55, CYCLE=6, DELTA=CYCLE/NS;
+const secX=i=>-1.375+i*PITCH;
+const BLANK={y:1.71,z:-0.35}, BLOW={y:1.29,z:0.25}, PIVOT={y:1.5,z:-0.05};
+const BOTTLE_H=0.40;
+box(3.6,0.15,1.75,M.paintDark,0,0.075,0);
+const bottlePts=[[0,0],[0.066,0],[0.075,0.014],[0.075,0.235],[0.071,0.262],[0.05,0.3],[0.03,0.33],[0.025,0.35],[0.025,0.37],[0.03,0.375],[0.03,0.4],[0.018,0.4],[0,0.398]].map(p=>new THREE.Vector2(p[0],p[1]));
+const bottleGeo=new THREE.LatheGeometry(bottlePts,28);
+const parisonGeo=new THREE.LatheGeometry([[0,0],[0.03,0],[0.03,0.035],[0.04,0.05],[0.048,0.08],[0.047,0.25],[0.035,0.275],[0,0.285]].map(p=>new THREE.Vector2(p[0],p[1])),20);
+const blankHalfR=mouldHalfGeo(0.13,0.055,0.42,1), blankHalfL=mouldHalfGeo(0.13,0.055,0.42,-1);
+const blowHalfR=mouldHalfGeo(0.13,0.08,0.42,1), blowHalfL=mouldHalfGeo(0.13,0.08,0.42,-1);
+const sections=[];
+for(let i=0;i<NS;i++){
+  const x=secX(i); const s={i,x,D:i*DELTA};
+  box(0.5,0.9,1.5,M.paint,x,0.6,0);
+  box(0.505,0.04,1.505,M.paintDark,x,1.05,0);
+  box(0.42,0.82,0.15,M.paintMid,x,1.46,-0.63);
+  // blank mould halves
+  const mk=(geo,holderX,holderZ,cy,cz)=>{const g=new THREE.Group();const m=shadowy(new THREE.Mesh(geo,M.iron));g.add(m);tag(m,'moulds');
+    const h=shadowy(new THREE.Mesh(new THREE.BoxGeometry(0.05,0.14,0.22),M.paintMid));h.position.set(holderX,0,holderZ);g.add(h);tag(h,'machine');
+    g.position.set(x,cy,cz);scene.add(g);return g;};
+  s.blankR=mk(blankHalfR,0.155,-0.1,BLANK.y,BLANK.z); s.blankL=mk(blankHalfL,-0.155,-0.1,BLANK.y,BLANK.z);
+  s.blowR=mk(blowHalfR,0.155,-0.04,BLOW.y,BLOW.z); s.blowL=mk(blowHalfL,-0.155,-0.04,BLOW.y,BLOW.z);
+  // funnel + baffle on blank top
+  const fn=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.055,0.07,20,1,true),std({color:0x5d6367,roughness:0.4,metalness:0.85,side:THREE.DoubleSide})));fn.position.set(x,1.965,BLANK.z);scene.add(fn);
+  box(0.04,0.04,0.3,M.darkSteel,x+0.1,2.0,BLANK.z-0.18);
+  // blow side bottom plate + pedestal
+  cyl(0.1,0.1,0.03,M.darkSteel,x,1.065,BLOW.z);
+  // invert mechanism
+  tag(cyl(0.035,0.035,0.46,M.steel,x,PIVOT.y,PIVOT.z),'machine').rotation.z=Math.PI/2;
+  const inv=new THREE.Group();inv.position.set(x,PIVOT.y,PIVOT.z);scene.add(inv);
+  const arm=box(0.035,0.045,0.32,M.paintMid,0.17,0,-0.15,inv);tag(arm,'machine');
+  const arm2=box(0.035,0.045,0.32,M.paintMid,-0.17,0,-0.15,inv);tag(arm2,'machine');
+  const ring=shadowy(new THREE.Mesh(new THREE.TorusGeometry(0.045,0.014,8,20),M.bronze));ring.rotation.x=Math.PI/2;ring.position.set(0,0.015,-0.3);inv.add(ring);tag(ring,'machine');
+  box(0.31,0.03,0.04,M.paintMid,0,0.015,-0.3,inv);
+  const par=new THREE.Mesh(parisonGeo,matForTemp(1));par.position.set(0,0.0,-0.3);par.castShadow=true;inv.add(par);
+  s.inv=inv;s.parison=par;
+  // blowhead
+  const bh=new THREE.Group();const bhc=cyl(0.065,0.055,0.07,M.darkSteel,0,0,0,bh);box(0.04,0.04,0.36,M.paintMid,0,0.05,-0.18,bh);
+  bh.position.set(x,2.0,BLOW.z);scene.add(bh);s.blowhead=bh;tag(bh,'machine');
+  // take-out
+  const to=new THREE.Group();box(0.12,0.05,0.06,M.paintMid,0,0.06,0,to);box(0.025,0.07,0.04,M.steel,-0.04,0.01,0,to);box(0.025,0.07,0.04,M.steel,0.04,0.01,0,to);box(0.04,0.04,0.5,M.paintMid,0.18,0.08,-0.15,to);
+  to.position.set(x,1.5,0.62);scene.add(to);s.takeout=to;tag(to,'machine');
+  // dead plate + pusher
+  box(0.3,0.02,0.22,M.darkSteel,x,1.07,0.62);
+  const pu=new THREE.Group();box(0.2,0.06,0.025,M.steel,0,0,0,pu);box(0.025,0.06,0.15,M.steel,-0.1,0,-0.07,pu);pu.position.set(x+0.0,1.13,0.51);scene.add(pu);s.pusher=pu;tag(pu,'machine');
+  tag(box(0.12,0.12,0.12,M.paintMid,x-0.14,1.11,0.43),'machine');
+  // section bottle
+  const b=new THREE.Mesh(bottleGeo,matForTemp(1));b.castShadow=true;b.visible=false;scene.add(b);s.bottle=b;
+  sections.push(s);
+}
+/* machine frame + deflector beam */
+for(const x of [-1.86,1.86]) box(0.12,2.2,0.12,M.paintMid,x,2.1,-0.62);
+box(3.84,0.1,0.1,M.paintMid,0,2.55,-0.68);
+box(3.84,0.08,0.08,M.paintMid,0,3.05,-1.35);
+for(const x of [-1.86,1.86]) box(0.08,0.55,0.08,M.paintMid,x,2.8,-1.35);
+rod(new V3(-1.86,3.05,-1.35),new V3(-1.86,2.55,-0.68),0.03,M.paintMid);rod(new V3(1.86,3.05,-1.35),new V3(1.86,2.55,-0.68),0.03,M.paintMid);
+
+/* ---------- troughs + deflectors (EGC) ---------- */
+const troughMat=std({color:0x9aa1a6,roughness:0.3,metalness:0.88,side:THREE.DoubleSide});
+const scoopAngle=[];const gobPaths=[];
+for(let i=0;i<NS;i++){
+  const x=secX(i);const th=Math.atan2(x,BLANK.z-0.25-DIST.z);scoopAngle.push(th);
+  const dir=new V3(Math.sin(th),0,Math.cos(th));
+  const E=DIST.clone().add(new V3(0.35*Math.sin(th),-0.3,0.35*Math.cos(th)));
+  const P1=E.clone().addScaledVector(dir,0.22).add(new V3(0,-0.06,0));
+  const Q=new V3(x,2.4,-0.62);
+  const mid=new V3((P1.x+Q.x)/2,(P1.y+Q.y)/2+0.02,(P1.z+Q.z)/2);
+  const tc=new THREE.CatmullRomCurve3([E,P1,mid,Q]);
+  const tm=shadowy(new THREE.Mesh(halfPipe(tc,0.066,40,12),troughMat));scene.add(tm);tag(tm,'delivery');
+  const D1=new V3(x,2.27,-0.46),D2=new V3(x,2.08,-0.37);
+  const dc=new THREE.CatmullRomCurve3([Q,D1,D2]);
+  const dm=shadowy(new THREE.Mesh(halfPipe(dc,0.06,20,12),troughMat));scene.add(dm);tag(dm,'delivery');
+  const hp=tc.getPointAt(0.55);rod(hp,new V3(hp.x,3.05,-1.35),0.012,M.darkSteel);
+  box(0.16,0.05,0.08,M.darkSteel,x,2.48,-0.64);
+  const scoopMid=DIST.clone().add(new V3(0.2*Math.sin(th),-0.18,0.2*Math.cos(th)));
+  const pts=[DIST.clone().add(new V3(0,-0.02,0)),scoopMid,E,P1,mid,Q,D1,D2].map(p=>p.clone().add(new V3(0,-0.03,0)));
+  gobPaths.push(new THREE.CatmullRomCurve3(pts,false,'centripetal'));
+}
+
+/* gob */
+const gob=new THREE.Mesh(new THREE.SphereGeometry(1,20,14),gobMat);gob.castShadow=false;scene.add(gob);
+const gobGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:0xffffff,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));gobGlow.scale.set(0.55,0.55,1);scene.add(gobGlow);
+const orGlow=new THREE.Sprite(gobGlow.material.clone());orGlow.position.set(FEED.x,3.70,FEED.z);orGlow.scale.set(0.45,0.45,1);orGlow.material.opacity=0.6;scene.add(orGlow);
+const gobLight=new THREE.PointLight(0xff7a20,1.4,2.2,2);scene.add(gobLight);
+
+/* ---------- conveyors ---------- */
+const V_MACH=0.275, V_CROSS=0.75, V_LEHR=0.12;
+const TRANSFER={cx:2.8,cz:1.32,r:0.4,w:2*Math.PI/8};
+const CROSS_X=TRANSFER.cx+TRANSFER.r, BELT_Y=1.08, MACH_Z=0.92;
+function conveyor(len,width,x,z,rotY,speed,key){
+  const g=new THREE.Group();const tex=beltTexture();tex.repeat.set(len/0.08,1);
+  const belt=shadowy(new THREE.Mesh(new THREE.BoxGeometry(len,0.03,width),std({map:tex,roughness:0.55,metalness:0.6})));belt.position.y=BELT_Y-0.015;g.add(belt);
+  box(len,0.08,0.03,M.steel,0,BELT_Y-0.01,width/2+0.03,g);box(len,0.08,0.03,M.steel,0,BELT_Y-0.01,-width/2-0.03,g);
+  box(len,0.12,width+0.08,M.paintMid,0,BELT_Y-0.11,0,g);
+  for(let k=-len/2+0.2;k<=len/2-0.1;k+=1.1){box(0.05,BELT_Y-0.17,0.05,M.paintDark,k,(BELT_Y-0.17)/2,width/2,g);box(0.05,BELT_Y-0.17,0.05,M.paintDark,k,(BELT_Y-0.17)/2,-width/2,g);}
+  g.position.set(x,0,z);g.rotation.y=rotY;scene.add(g);
+  if(key)tag(belt,key);
+  belts.push({tex,speed,len});return g;
+}
+const belts=[];
+conveyor(5.0,0.2,0.3,MACH_Z,0,V_MACH,'transfer');
+conveyor(5.6,0.2,CROSS_X,TRANSFER.cz+2.5,-Math.PI/2,V_CROSS,'transfer');
+/* transfer plate + star wheel */
+const tplate=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(0.55,0.55,0.03,40,1,false,Math.PI/2-0.12,Math.PI/2+0.24),M.darkSteel));tplate.position.set(TRANSFER.cx,BELT_Y-0.015,TRANSFER.cz);scene.add(tplate);tag(tplate,'transfer');
+const wheel=new THREE.Group();wheel.position.set(TRANSFER.cx,BELT_Y+0.16,TRANSFER.cz);scene.add(wheel);
+cyl(0.28,0.28,0.025,M.steel,0,0,0,wheel,40);cyl(0.05,0.05,0.4,M.darkSteel,0,0.2,0,wheel);
+for(let k=0;k<8;k++){const a=k*Math.PI/4;const f=box(0.24,0.022,0.035,M.steel,0,0,0,wheel);f.position.set(0.39*Math.sin(a),0,-0.39*Math.cos(a));f.rotation.y=-a+Math.PI/2;}
+box(0.3,1.1,0.3,M.paintDark,TRANSFER.cx+0.55,0.55,TRANSFER.cz-0.55);
+box(0.12,0.08,0.75,M.paintDark,TRANSFER.cx+0.25,BELT_Y+0.52,TRANSFER.cz-0.38);
+/* hot-end coating hood */
+(function(){const g=new THREE.Group();const z0=TRANSFER.cz+1.3;
+  box(0.06,0.8,1.1,M.paintMid,0.36,BELT_Y+0.32,0,g);box(0.06,0.8,1.1,M.paintMid,-0.36,BELT_Y+0.32,0,g);box(0.78,0.08,1.1,M.paintMid,0,BELT_Y+0.74,0,g);
+  cyl(0.12,0.12,1.3,M.steel,0,BELT_Y+1.4,0,g);box(0.4,0.3,0.4,M.paintDark,0,BELT_Y+0.92,0,g);
+  g.position.set(CROSS_X,0,z0+0.55);scene.add(g);})();
+/* lehr */
+const LEHR={x0:3.6,x1:12.0,z0:4.15,z1:6.45,exit:14.3};
+(function(){const L=LEHR.x1-LEHR.x0,cx=(LEHR.x0+LEHR.x1)/2,cz=(LEHR.z0+LEHR.z1)/2,W=LEHR.z1-LEHR.z0;
+  box(L,1.5,0.08,M.lehr,cx,1.35,LEHR.z0);box(L,1.5,0.08,M.lehr,cx,1.35,LEHR.z1);
+  box(L,0.12,W+0.08,M.lehr,cx,2.15,cz);box(L,0.45,W,M.paintDark,cx,0.82,cz);
+  for(let x=LEHR.x0+0.4;x<LEHR.x1;x+=1.4){box(0.08,0.62,0.12,M.paintDark,x,0.3,LEHR.z0+0.06);box(0.08,0.62,0.12,M.paintDark,x,0.3,LEHR.z1-0.06);}
+  for(let x=LEHR.x0+1.0;x<LEHR.x1-0.5;x+=2.1){box(1.1,0.5,1.3,M.paint,x,2.46,cz);cyl(0.14,0.14,1.0,M.steel,x+0.3,3.2,cz-0.3);cyl(0.34,0.34,0.14,M.paintDark,x-0.25,2.78,cz+0.2);}
+  const mat=shadowy(new THREE.Mesh(new THREE.BoxGeometry(LEHR.exit-LEHR.x0+0.2,0.03,W-0.12),M.lehrMat));mat.position.set((LEHR.x0+LEHR.exit)/2-0.1,BELT_Y-0.015,cz);scene.add(mat);
+  box(0.06,0.55,W+0.2,M.paintDark,LEHR.x0,1.95,cz);
+  box(0.1,0.06,W+0.3,M.paintDark,LEHR.x0,1.66,cz);
+  const hood=box(0.6,0.12,W+0.3,M.paintMid,LEHR.x0-0.05,2.3,cz);
+  for(let x=LEHR.x1+0.2;x<LEHR.exit;x+=0.9){box(0.06,BELT_Y-0.1,0.06,M.paintDark,x,(BELT_Y-0.1)/2,LEHR.z0+0.1);box(0.06,BELT_Y-0.1,0.06,M.paintDark,x,(BELT_Y-0.1)/2,LEHR.z1-0.1);}
+  // cold-end inspection unit swallowing bottles
+  box(1.2,1.5,W+0.4,M.paint,LEHR.exit+0.55,1.25,cz);box(1.22,0.12,W+0.42,M.paintDark,LEHR.exit+0.55,0.55,cz);
+  const scr=box(0.02,0.35,0.5,std({color:0x10161a,emissive:0x2a6f88,emissiveIntensity:0.5,roughness:0.3}),LEHR.exit-0.06,1.6,cz+0.6);
+})();
+/* stacker */
+const stacker=new THREE.Group();scene.add(stacker);
+(function(){const z0=4.5,z1=6.1,cz=(z0+z1)/2,L=z1-z0;
+  box(0.04,0.09,L,M.steel,0,BELT_Y+0.12,cz,stacker);
+  for(let k=0;k<16;k++)box(0.05,0.07,0.035,M.steel,0.035,BELT_Y+0.12,z0+0.05+k*(L-0.1)/15,stacker);
+  box(0.7,0.05,0.05,M.paintMid,-0.35,BELT_Y+0.36,z0+0.2,stacker);box(0.7,0.05,0.05,M.paintMid,-0.35,BELT_Y+0.36,z1-0.2,stacker);
+  rod(new V3(0,BELT_Y+0.15,z0+0.2),new V3(0,BELT_Y+0.36,z0+0.2),0.02,M.paintMid,stacker);rod(new V3(0,BELT_Y+0.15,z1-0.2),new V3(0,BELT_Y+0.36,z1-0.2),0.02,M.paintMid,stacker);
+  stacker.position.x=CROSS_X-0.15;
+  box(0.3,1.5,0.3,M.paintDark,CROSS_X-0.75,0.75,cz);box(0.9,0.25,0.7,M.paint,CROSS_X-0.75,1.6,cz);
+})();
+const STACK_X0=CROSS_X-0.15;
+
+/* ---------- drum + pail with labels ---------- */
+/* Molyslip wordmark (white, supplied by Molyslip) */
+const LOGO_SRC='data:image/png;base64,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';
+const logoImg=new Image();
+function labelTex(line2){return canvasTex(1024,512,(g,w,h)=>{
+  g.fillStyle='#111213';g.fillRect(0,0,w,h);
+  g.fillStyle='#2a2c2e';g.fillRect(0,h*0.06,w,4);g.fillRect(0,h*0.94-4,w,4);
+  if(logoImg.complete&&logoImg.naturalWidth){const lw=w*0.32,lh=lw*logoImg.naturalHeight/logoImg.naturalWidth;g.drawImage(logoImg,(w-lw)/2,h*0.395,lw,lh);}
+  g.fillStyle='#ffffff';g.textAlign='center';g.textBaseline='middle';g.font='bold 26px Verdana, sans-serif';g.fillText(line2,w*0.5,h*0.6);});}
+const drumMats=[];
+const drumBlack=std({color:0x121314,roughness:0.32,metalness:0.35});
+function drum(x,z,r,h,label,rot){const t=labelTex(label);const side=std({map:t,roughness:0.32,metalness:0.3});drumMats.push({m:side,label});
+  const top=std({color:0x1a1b1c,roughness:0.35,metalness:0.4});const d=shadowy(new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,40),[side,top,top]));d.position.set(x,h/2,z);d.rotation.y=rot;scene.add(d);
+  for(const y of [0.33,0.67]){const rib=shadowy(new THREE.Mesh(new THREE.TorusGeometry(r+0.004,0.012,8,40),drumBlack));rib.rotation.x=Math.PI/2;rib.position.set(x,h*y,z);scene.add(rib);}
+  cyl(0.035,0.035,0.02,M.darkSteel,x+r*0.5,h+0.01,z);return d;}
+drum(-2.75,2.35,0.29,0.88,'GLASSTEK IS-220',Math.PI-0.45);
+drum(-2.1,2.75,0.29,0.88,'GLASSTEK IX-220',Math.PI-0.6);
+drum(4.25,2.4,0.16,0.36,'GLASSTEK AG-20',Math.PI-0.98);
+const shelfPail=drum(1.15,-3.05+0.0,0.16,0.36,'GLASSTEK EGC',Math.PI-0.54);shelfPail.position.y=3.44+0.18;
+function refreshLabels(){drumMats.forEach(d=>{d.m.map&&d.m.map.dispose();d.m.map=labelTex(d.label);d.m.needsUpdate=true;});}
+logoImg.onload=refreshLabels;logoImg.src=LOGO_SRC;
+document.fonts&&document.fonts.ready.then(refreshLabels).catch(()=>{});
+
+/* ---------- bottle flow ---------- */
+const pool=[];const live=[];
+function getBottle(){const b=pool.pop()||new THREE.Mesh(bottleGeo,tempMats[TEMP_LEVELS-1]);b.castShadow=true;b.visible=true;scene.add(b);return b;}
+function freeBottle(o){scene.remove(o.mesh);pool.push(o.mesh);}
+let crossCount=0;const rows={};let stack=null;
+const SLOT_Z0=4.6,SLOT_DZ=0.2;
+// phase constant so bottles sit between star-wheel fingers
+const entryPhase=mod(5.75+(TRANSFER.cx-secX(0))/V_MACH,1);
+function spawnBottle(sec,tb){live.push({mesh:getBottle(),x0:sec.x,tb,stage:'mach',slotZ:0,row:-1});}
+function updateBottles(t){
+  for(let n=live.length-1;n>=0;n--){
+    const b=live[n],m=b.mesh;let T=1;
+    const t1=b.tb+(TRANSFER.cx-b.x0)/V_MACH, t2=t1+(Math.PI/2)/TRANSFER.w;
+    if(t<t1){m.position.set(b.x0+V_MACH*(t-b.tb),BELT_Y,MACH_Z);T=1-0.28*(t-b.tb)/(t1-b.tb+1e-6);}
+    else if(t<t2){const ph=TRANSFER.w*(t-t1);m.position.set(TRANSFER.cx+TRANSFER.r*Math.sin(ph),BELT_Y,TRANSFER.cz-TRANSFER.r*Math.cos(ph));T=0.72;}
+    else if(b.stage==='mach'||b.stage==='cross'){
+      if(b.stage==='mach'){b.stage='cross';const q=crossCount++;b.row=Math.floor(q/8);b.slotZ=SLOT_Z0+(7-(q%8))*SLOT_DZ;rows[b.row]=rows[b.row]||{arrived:0};}
+      const z=TRANSFER.cz+V_CROSS*(t-t2);
+      if(z>=b.slotZ){m.position.set(CROSS_X,BELT_Y,b.slotZ);b.stage='row';rows[b.row].arrived++;if(rows[b.row].arrived===8&&!stack){stack={row:b.row,t0:t};}}
+      else m.position.set(CROSS_X,BELT_Y,z);
+      T=0.68;
+    }
+    else if(b.stage==='row'){
+      if(stack&&stack.row===b.row){const k=seg(t,stack.t0,stack.t0+0.4);m.position.x=CROSS_X+0.65*ease(k);if(k>=1){b.stage='lehr';b.tl=stack.t0+0.4;}}
+      T=0.66;
+    }
+    if(b.stage==='lehr'){
+      const x=CROSS_X+0.65+V_LEHR*(t-b.tl);m.position.x=x;
+      T=0.62*(1-clamp01((x-LEHR.x0-0.3)/(LEHR.x1-LEHR.x0-0.3)));
+      m.visible=!(x>LEHR.x0+1.25&&x<LEHR.x1-0.35);
+      if(x>LEHR.exit+0.1){freeBottle(b);live.splice(n,1);continue;}
+    }
+    m.material=matForTemp(T);
+  }
+  if(stack&&t>stack.t0+0.8){delete rows[stack.row];stack=null;
+    for(const r in rows){if(rows[r].arrived===8){stack={row:+r,t0:t};break;}}}
+  stacker.position.x=STACK_X0+(stack?0.65*(t<stack.t0+0.4?ease(seg(t,stack.t0,stack.t0+0.4)):1-ease(seg(t,stack.t0+0.4,stack.t0+0.8))):0);
+}
+
+/* ---------- machine timeline ---------- */
+let simT=0, playing=!reduceMotion, lastP=new Array(NS).fill(0);
+function updateMachine(t,dt){
+  for(const s of sections){
+    const p=mod(t-s.D,CYCLE);
+    const blankOpen=ease(seg(p,1.5,1.7))*(1-ease(seg(p,5.5,5.7)));
+    s.blankR.position.x=s.x+0.075*blankOpen;s.blankL.position.x=s.x-0.075*blankOpen;
+    const blowClosed=ease(seg(p,2.6,2.8))*(1-ease(seg(p,4.4,4.6)));
+    s.blowR.position.x=s.x+0.075*(1-blowClosed);s.blowL.position.x=s.x-0.075*(1-blowClosed);
+    s.inv.rotation.x=Math.PI*(ease(seg(p,1.8,2.6))-ease(seg(p,3.0,3.6)));
+    s.parison.visible=p>0.25&&p<3.9;
+    s.blowhead.position.y=2.0-0.46*(ease(seg(p,3.6,3.75))-ease(seg(p,4.2,4.35)));
+    // take-out
+    let toZ=0.62;
+    if(p>=4.35&&p<4.6)toZ=0.62-0.37*ease(seg(p,4.35,4.6));
+    else if(p>=4.6&&p<4.7)toZ=0.25;
+    else if(p>=4.7&&p<5.15)toZ=0.25+0.37*ease(seg(p,4.7,5.15));
+    s.takeout.position.z=toZ;
+    const b=s.bottle;
+    b.visible=p>=3.9&&p<5.75;
+    if(b.visible){
+      let bz=BLOW.z,by=1.08;
+      if(p>=4.7&&p<5.15){bz=toZ;by=1.08+0.05*Math.sin(Math.PI*seg(p,4.7,5.15));}
+      else if(p>=5.15&&p<5.4)bz=0.62;
+      else if(p>=5.4)bz=0.62+0.3*ease(seg(p,5.4,5.75));
+      b.position.set(s.x,by,bz);
+    }
+    s.pusher.position.z=0.51+0.3*(ease(seg(p,5.4,5.75))-ease(seg(p,5.75,5.98)));
+    if(dt>0&&lastP[s.i]<5.75&&p>=5.75&&p-lastP[s.i]<1)spawnBottle(s,t-(p-5.75));
+    lastP[s.i]=p;
+  }
+  // gob + scoop + shears
+  let active=-1,r=0;
+  for(const s of sections){const rr=mod(t-s.D+CYCLE/2,CYCLE)-CYCLE/2;if(rr>=-0.95&&rr<0){active=s.i;r=rr;}}
+  const u=mod(t,CYCLE);
+  let k=Math.floor(mod(u+0.65,CYCLE)/DELTA);const local=mod(u+0.65,CYCLE)-k*DELTA;
+  const th0=scoopAngle[k],th1=scoopAngle[(k+1)%NS];
+  scoop.rotation.y=local<0.2?th0:th0+(th1-th0)*ease(seg(local,0.2,DELTA-0.02));
+  let shearClose=0;
+  if(active>=0){
+    gob.visible=true;gobGlow.visible=true;
+    if(r<-0.7){const L=0.06+0.2*seg(r,-0.95,-0.7);gob.scale.set(0.042,L/2,0.042);gob.position.set(FEED.x,FEED.orificeY-L/2,FEED.z);gob.quaternion.identity();}
+    else if(r<-0.62){const f=seg(r,-0.7,-0.62);gob.scale.set(0.044,0.11,0.044);gob.position.set(FEED.x,3.62-0.36*f*f,FEED.z);gob.quaternion.identity();}
+    else if(r<-0.07){const f=seg(r,-0.62,-0.07);const sp=Math.pow(f,1.25);const path=gobPaths[active];const P=path.getPointAt(sp),Tg=path.getTangentAt(sp);
+      gob.position.copy(P);gob.quaternion.setFromUnitVectors(new V3(0,1,0),Tg.clone().negate());gob.scale.set(0.044,0.1,0.044);}
+    else{const f=seg(r,-0.07,0);gob.position.set(secX(active),2.06-0.16*f,BLANK.z);gob.quaternion.identity();gob.scale.set(0.044,0.1,0.044);}
+    shearClose=Math.max(0,1-Math.abs(r+0.7)/0.06);
+  } else {gob.visible=false;gobGlow.visible=false;}
+  gobGlow.position.copy(gob.position);gobLight.position.copy(gob.position);gobLight.intensity=gob.visible?1.4:0;
+  shear.L.rotation.y=-0.75*(1-shearClose);shear.R.rotation.y=0.75*(1-shearClose);
+  wheel.rotation.y=-(TRANSFER.w*(t-entryPhase)+Math.PI/8);
+  for(const bt of belts)bt.tex.offset.x=-(t*bt.speed/0.08)%1;
+  M.lehrMat.map.offset.x=-(t*V_LEHR/(1/60*(LEHR.exit-LEHR.x0+0.2)))%1;
+}
+
+/* ---------- UI: list, pins, selection ---------- */
+const listEl=document.getElementById('list'), pinsEl=document.getElementById('pins');
+let selected=null, showAll=true;
+POINTS.forEach((pt,i)=>{
+  const li=document.createElement('li');li.className='item';li.dataset.key=pt.key;
+  li.innerHTML=`<button class="item-btn" aria-expanded="false"><span class="num">${i+1}</span><span><span class="item-title">${pt.title}</span><span class="item-sub">${pt.sub}: ${pt.products.map(p=>p.name).join(', ')}</span></span></button>
+  <div class="detail"><p>${pt.text}</p><ul class="prods">${pt.products.map(p=>`<li><span class="sq"></span><span><span class="pname">${p.name}</span><br><span class="pnote">${p.note}</span>${p.url?`<br><a href="${p.url}" target="_blank" rel="noopener">Product page</a>`:''}</span></li>`).join('')}</ul></div>`;
+  li.querySelector('.item-btn').addEventListener('click',()=>select(selected===pt.key?null:pt.key,true));
+  listEl.appendChild(li);
+  const pin=document.createElement('button');pin.className='pin';pin.dataset.key=pt.key;pin.setAttribute('aria-label',`${i+1}. ${pt.title}`);
+  pin.innerHTML=`<span class="dot">${i+1}</span><span class="tag">${pt.sub}</span>`;
+  pin.addEventListener('click',()=>select(pt.key,true));pinsEl.appendChild(pin);pt.pinEl=pin;
+});
+const pinAnchor={
+  shear:new V3(0.26,3.72,FEED.z+0.02),
+  scoop:new V3(0.2,3.05,-1.88),
+  delivery:gobPaths[1].getPointAt(0.55).clone().add(new V3(0,0.08,0)),
+  moulds:new V3(secX(1)-0.13,1.82,BLANK.z+0.08),
+  machine:new V3(secX(0),0.75,0.76),
+  transfer:new V3(CROSS_X,BELT_Y+0.05,2.0)
+};
+function applyHighlights(){
+  for(const key in groups){for(const m of groups[key]){m.material=(selected===key)?HL_PULSE:(showAll?HL_STATIC:m.userData.orig);}}
+}
+function select(key,fly){
+  selected=key;
+  document.querySelectorAll('.item').forEach(li=>{const on=li.dataset.key===key;li.classList.toggle('open',on);li.querySelector('.item-btn').setAttribute('aria-expanded',on);if(on&&fly)li.scrollIntoView({block:'nearest',behavior:reduceMotion?'auto':'smooth'});});
+  POINTS.forEach(p=>p.pinEl.classList.toggle('active',p.key===key));
+  applyHighlights();
+  if(fly){const v=key?POINTS.find(p=>p.key===key).view:HOME;flyTo(v.pos,v.target);}
+}
+const btnAll=document.getElementById('btnAll'),btnPlay=document.getElementById('btnPlay');
+btnAll.addEventListener('click',()=>{showAll=!showAll;btnAll.setAttribute('aria-pressed',showAll);document.body.classList.toggle('show-tags',showAll);applyHighlights();});
+function setPlaying(v){playing=v;btnPlay.textContent=v?'Pause line':'Run line';btnPlay.setAttribute('aria-pressed',!v);}
+btnPlay.addEventListener('click',()=>setPlaying(!playing));
+document.getElementById('btnReset').addEventListener('click',()=>select(null,true));
+setPlaying(playing);
+
+let fly=null;
+function flyTo(pos,target){fly={p0:camera.position.clone(),t0:controls.target.clone(),p1:new V3(...pos),t1:new V3(...target),s:0,dur:reduceMotion?0.001:1.4};}
+controls.addEventListener('start',()=>{fly=null;});
+
+/* click on parts */
+const ray=new THREE.Raycaster();let downXY=null;
+canvas.addEventListener('pointerdown',e=>{downXY=[e.clientX,e.clientY];});
+canvas.addEventListener('pointerup',e=>{if(!downXY)return;const moved=Math.hypot(e.clientX-downXY[0],e.clientY-downXY[1]);downXY=null;if(moved>5)return;
+  const r=canvas.getBoundingClientRect();ray.setFromCamera({x:((e.clientX-r.left)/r.width)*2-1,y:-((e.clientY-r.top)/r.height)*2+1},camera);
+  const hit=ray.intersectObjects(pickables,false)[0];if(hit)select(hit.object.userData.key,true);});
+canvas.addEventListener('pointermove',e=>{if(e.buttons)return;const r=canvas.getBoundingClientRect();ray.setFromCamera({x:((e.clientX-r.left)/r.width)*2-1,y:-((e.clientY-r.top)/r.height)*2+1},camera);canvas.style.cursor=ray.intersectObjects(pickables,false).length?'pointer':'grab';});
+
+/* ---------- loop ---------- */
+function resize(){const w=window.innerWidth,h=window.innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
+  camera.fov=w<820?50:34;
+  // keep the plant centred in the space left of the panel (desktop) or above it (mobile)
+  if(w>=820){const off=Math.round((360+18)/2);camera.aspect=(w+off*2)/h;camera.setViewOffset(w+off*2,h,off*2,0,w,h);}
+  else{const off=Math.round(h*0.46/2);camera.aspect=w/(h+off*2);camera.setViewOffset(w,h+off*2,0,off*2,w,h);}
+  camera.updateProjectionMatrix();}
+window.addEventListener('resize',resize);resize();
+applyHighlights();
+// warm the line so the conveyors and lehr are already full
+(function prefill(){const step=1/30;for(let t=0;t<120;t+=step){simT=t;updateMachine(simT,step);updateBottles(simT);}})();
+
+const tmp=new V3();const clock=new THREE.Clock();let frame=0;
+function loop(){
+  const dt=Math.min(clock.getDelta(),0.05);
+  if(playing){simT+=dt;}
+  updateMachine(simT,playing?dt:0);updateBottles(simT);
+  HL_PULSE.emissiveIntensity=0.35+0.3*(0.5+0.5*Math.sin(performance.now()/260));
+  if(fly){fly.s=Math.min(1,fly.s+dt/fly.dur);const k=ease(fly.s);camera.position.lerpVectors(fly.p0,fly.p1,k);controls.target.lerpVectors(fly.t0,fly.t1,k);if(fly.s>=1)fly=null;}
+  controls.update();
+  renderer.render(scene,camera);
+  const w=window.innerWidth,h=window.innerHeight;
+  for(const pt of POINTS){tmp.copy(pinAnchor[pt.key]).project(camera);const el=pt.pinEl;
+    if(tmp.z>1||tmp.x<-1.1||tmp.x>1.1||tmp.y<-1.1||tmp.y>1.1){el.classList.add('hidden');continue;}
+    el.classList.remove('hidden');el.style.transform=`translate(${((tmp.x+1)/2*w).toFixed(1)}px,${((1-tmp.y)/2*h).toFixed(1)}px)`;}
+  if(++frame===2)document.getElementById('loading').classList.add('done');
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
